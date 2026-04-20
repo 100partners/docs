@@ -245,6 +245,23 @@
   .callout.accent-border { border-left: 3px solid var(--accent); }
   .callout b { color: var(--ink); }
 
+  /* Download buttons */
+  .dl-row {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;
+  }
+  .dl-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--ink); background: var(--white); color: var(--ink);
+    padding: 10px 14px; font-size: 11px; letter-spacing: 0.08em;
+    text-transform: lowercase; text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .dl-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .dl-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 1.6; fill: none; flex: none; }
+  .dl-btn b { font-weight: 600; letter-spacing: 0.04em; }
+  .dl-btn .size { color: var(--muted); font-size: 10px; letter-spacing: 0.06em; margin-left: 2px; }
+  .dl-btn:hover .size { color: var(--soft); }
+
   /* Terminal label pattern */
   .term-label {
     font-size: 11px; font-family: inherit; color: var(--muted);
@@ -327,6 +344,21 @@
       <div class="logo-show" style="background: var(--white);">
         <img src="https://100.partners/assets/100p-logo.png" alt="100 Partners on white" />
       </div>
+    </div>
+
+    <div class="dl-row">
+      <a class="dl-btn" href="assets/100p-logo.png" download="100p-logo.png">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14M6 13l6 6 6-6M4 21h16"/></svg>
+        <b>logo · png</b> <span class="size">25 kb</span>
+      </a>
+      <a class="dl-btn" href="assets/100p-logo.avif" download="100p-logo.avif">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14M6 13l6 6 6-6M4 21h16"/></svg>
+        <b>logo · avif</b> <span class="size">6 kb</span>
+      </a>
+      <a class="dl-btn" href="https://100.partners/assets/100p-logo.png" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M5 21h14a1 1 0 0 0 1-1v-6M10 21H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg>
+        <b>view live</b>
+      </a>
     </div>
 
     <div class="grid-2" style="margin-top: 14px;">
@@ -774,11 +806,72 @@
     </div>
   </section>
 
-  <!-- ========== 09 · QUICK REFERENCE ========== -->
+  <!-- ========== 09 · DOWNLOADS ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14M6 13l6 6 6-6M4 21h16"/></svg>
+      <h2 class="label"><span class="num">09</span> · [<b>downloads</b>] grab the assets</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p">everything you need to design on-brand. files hosted on docs.100.partners — right-click to save or click to download directly.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>logo files</h3>
+        <div class="dl-row" style="margin-top: 0;">
+          <a class="dl-btn" href="assets/100p-logo.png" download="100p-logo.png">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14M6 13l6 6 6-6M4 21h16"/></svg>
+            <b>100p-logo.png</b> <span class="size">25 kb</span>
+          </a>
+          <a class="dl-btn" href="assets/100p-logo.avif" download="100p-logo.avif">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14M6 13l6 6 6-6M4 21h16"/></svg>
+            <b>100p-logo.avif</b> <span class="size">6 kb</span>
+          </a>
+        </div>
+        <div class="foot">// use .png for decks/docs/email · .avif for web (smaller, modern browsers)</div>
+      </div>
+
+      <div class="card">
+        <h3>design tokens</h3>
+        <div class="dl-row" style="margin-top: 0;">
+          <a class="dl-btn" href="assets/tokens.css" download="tokens.css">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14M6 13l6 6 6-6M4 21h16"/></svg>
+            <b>tokens.css</b> <span class="size">1 kb</span>
+          </a>
+        </div>
+        <div class="foot">// :root custom properties · color, type, layout · drop into any new stylesheet</div>
+      </div>
+
+      <div class="card">
+        <h3>typography</h3>
+        <div class="dl-row" style="margin-top: 0;">
+          <a class="dl-btn" href="https://fonts.google.com/specimen/JetBrains+Mono" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M5 21h14a1 1 0 0 0 1-1v-6M10 21H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg>
+            <b>jetbrains mono</b> <span class="size">google fonts</span>
+          </a>
+        </div>
+        <div class="foot">// weights 400 / 500 / 600 · free, open-source, self-hostable</div>
+      </div>
+
+      <div class="card">
+        <h3>color palette</h3>
+        <div class="dl-row" style="margin-top: 0;">
+          <a class="dl-btn" href="data:text/plain;charset=utf-8,%23f6f5f1%20bg%0A%230f0f0f%20ink%0A%238a8a85%20muted%0A%23d9d8d2%20soft%0A%23ffffff%20white%0A%23DB4A2B%20accent%0A%233f7a5e%20green%0A%23b88512%20amber%0A%23b23a5c%20rose%0A%233a4a9e%20indigo" download="100p-palette.txt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14M6 13l6 6 6-6M4 21h16"/></svg>
+            <b>palette.txt</b> <span class="size">hex list</span>
+          </a>
+        </div>
+        <div class="foot">// plain-text hex list · import into figma, sketch, or any design tool</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 10 · QUICK REFERENCE ========== -->
   <section>
     <div class="sec-head">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-      <h2 class="label"><span class="num">09</span> · [<b>quick reference</b>] copy-paste tokens</h2>
+      <h2 class="label"><span class="num">10</span> · [<b>quick reference</b>] copy-paste tokens</h2>
       <div class="rule"></div>
     </div>
 
