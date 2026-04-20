@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>100 Partners · brand kit & style guide</title>
+<meta name="description" content="The complete 100 Partners brand system: logo, color, typography, spacing, voice, and applications. One page. Extracted from 100.partners." />
+<link rel="icon" type="image/png" href="https://100.partners/assets/100p-logo.png" />
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* ========== CORE TOKENS ========== */
+    --bg: #f6f5f1;
+    --ink: #0f0f0f;
+    --muted: #8a8a85;
+    --soft: #d9d8d2;
+    --white: #ffffff;
+    --accent: #DB4A2B;
+
+    /* Semantic (reserved) */
+    --green: #3f7a5e;
+    --amber: #b88512;
+    --rose:  #b23a5c;
+    --indigo:#3a4a9e;
+
+    --maxw: 960px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13.5px; font-weight: 400; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+  a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  ::selection { background: var(--accent); color: var(--bg); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 40px 28px 120px; }
+
+  /* ========== MASTHEAD ========== */
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    padding: 14px 0; margin-bottom: 48px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .masthead .brand { display: flex; align-items: center; border: none; }
+  .masthead .brand img { height: 64px; width: auto; display: block; }
+  .masthead .meta {
+    text-align: right; font-size: 11px; letter-spacing: 0.06em;
+    color: var(--muted); text-transform: lowercase;
+  }
+  .masthead .meta b { color: var(--ink); font-weight: 600; }
+
+  /* ========== HERO ========== */
+  .hero { margin-bottom: 56px; }
+  .hero h1 {
+    font-size: 34px; font-weight: 500; line-height: 1.22; letter-spacing: -0.01em;
+    margin: 0 0 18px; text-transform: lowercase;
+  }
+  .hero h1 .cursor {
+    display: inline-block; width: 12px; height: 28px; background: var(--accent);
+    vertical-align: -4px; margin-left: 4px; animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero .lede {
+    font-size: 14px; color: var(--ink); max-width: 640px;
+    margin: 0 0 24px; line-height: 1.65;
+  }
+  .scan {
+    border: 1px solid var(--ink); background: var(--white);
+    padding: 18px 22px; font-size: 12.5px; line-height: 1.85;
+    color: var(--muted); white-space: pre; overflow-x: auto;
+  }
+  .scan .v { color: var(--ink); }
+  .scan .v-good { color: var(--accent); font-weight: 600; }
+  .scan .row-winner { color: var(--ink); font-weight: 600; }
+
+  /* ========== SECTION HEADERS ========== */
+  .sec-head {
+    display: flex; align-items: center; gap: 10px;
+    margin: 72px 0 24px 0;
+  }
+  .sec-head svg {
+    width: 18px; height: 18px; stroke: var(--ink); stroke-width: 1.25; fill: none; flex: none;
+  }
+  .sec-head .label {
+    font-size: 11px; font-weight: 400; letter-spacing: 0.08em; text-transform: lowercase;
+    color: var(--muted); white-space: nowrap; margin: 0;
+  }
+  .sec-head .label b { color: var(--ink); font-weight: 600; }
+  .sec-head .rule { flex: 1; border-bottom: 1px solid var(--soft); }
+  .sec-head .num { color: var(--accent); font-weight: 600; letter-spacing: 0.12em; }
+
+  h2.block-h {
+    font-size: 22px; font-weight: 500; line-height: 1.25; letter-spacing: -0.01em;
+    margin: 0 0 12px; text-transform: lowercase;
+  }
+  p.block-p { font-size: 13.5px; line-height: 1.7; margin: 0 0 20px; max-width: 680px; }
+  p.block-p.muted { color: var(--muted); }
+
+  /* ========== CARDS ========== */
+  .card {
+    border: 1px solid var(--ink); background: var(--white);
+    padding: 24px; margin: 0 0 14px;
+  }
+  .card h3 {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    margin: 0 0 14px; text-transform: lowercase;
+  }
+  .card .foot {
+    font-size: 10.5px; letter-spacing: 0.06em; color: var(--muted);
+    margin-top: 14px; text-transform: lowercase;
+  }
+
+  /* ========== GRID ========== */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 720px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  }
+
+  /* ========== COLOR SWATCHES ========== */
+  .swatch {
+    border: 1px solid var(--ink); background: var(--white);
+    overflow: hidden;
+  }
+  .swatch .chip { height: 96px; display: block; position: relative; }
+  .swatch .chip.bordered { border-bottom: 1px solid var(--ink); }
+  .swatch .meta { padding: 12px 14px; font-size: 11px; line-height: 1.7; }
+  .swatch .meta .name {
+    font-weight: 600; color: var(--ink); letter-spacing: 0.04em;
+    text-transform: lowercase; font-size: 12px;
+  }
+  .swatch .meta .hex { color: var(--muted); letter-spacing: 0.06em; }
+  .swatch .meta .note { color: var(--muted); font-size: 10.5px; margin-top: 4px; }
+  .swatch .meta .role { display: block; color: var(--ink); font-size: 10.5px; margin-top: 2px; }
+
+  /* ========== TYPE SPECIMENS ========== */
+  .type-row {
+    border: 1px solid var(--ink); background: var(--white);
+    padding: 20px 24px; margin: 0 0 10px;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .type-row .demo { color: var(--ink); }
+  .type-row .spec {
+    font-size: 10.5px; color: var(--muted); letter-spacing: 0.06em;
+    text-transform: lowercase; text-align: right; white-space: nowrap;
+  }
+  .type-row .spec b { color: var(--ink); font-weight: 600; }
+
+  .h1-demo { font-size: 34px; font-weight: 500; line-height: 1.22; letter-spacing: -0.01em; text-transform: lowercase; }
+  .h2-demo { font-size: 22px; font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; text-transform: lowercase; }
+  .h3-demo { font-size: 17px; font-weight: 600; line-height: 1.3; letter-spacing: -0.005em; }
+  .body-demo { font-size: 14px; font-weight: 400; line-height: 1.78; }
+  .small-demo { font-size: 11px; font-weight: 400; letter-spacing: 0.08em; text-transform: lowercase; color: var(--muted); }
+  .small-demo b { color: var(--ink); font-weight: 600; }
+
+  /* ========== SPACING RULER ========== */
+  .ruler {
+    border: 1px solid var(--ink); background: var(--white); padding: 22px;
+  }
+  .ruler .tick {
+    display: flex; align-items: center; gap: 14px;
+    padding: 10px 0; border-bottom: 1px dotted var(--soft);
+  }
+  .ruler .tick:last-child { border-bottom: 0; }
+  .ruler .bar { background: var(--accent); height: 6px; }
+  .ruler .lbl {
+    font-size: 11px; color: var(--muted); letter-spacing: 0.06em;
+    text-transform: lowercase; white-space: nowrap; min-width: 96px;
+  }
+  .ruler .lbl b { color: var(--ink); font-weight: 600; }
+
+  /* ========== VOICE / DO-DONT ========== */
+  .vcard { border: 1px solid var(--ink); background: var(--white); padding: 22px; }
+  .vcard .tag {
+    display: inline-block; font-size: 10px; letter-spacing: 0.12em;
+    text-transform: lowercase; padding: 3px 8px; margin-bottom: 12px;
+    border: 1px solid var(--ink);
+  }
+  .vcard .tag.do    { background: var(--ink); color: var(--bg); }
+  .vcard .tag.dont  { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .vcard ul { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.8; }
+  .vcard ul li { margin-bottom: 6px; }
+  .vcard .quote {
+    font-size: 13px; color: var(--ink); margin-top: 10px; font-style: italic;
+    padding-left: 12px; border-left: 2px solid var(--accent);
+  }
+
+  /* ========== LOGO SHOWCASE ========== */
+  .logo-show {
+    border: 1px solid var(--ink); background: var(--white);
+    padding: 40px; display: flex; align-items: center; justify-content: center;
+    min-height: 180px;
+  }
+  .logo-show img { max-height: 120px; width: auto; display: block; }
+  .logo-show.dark { background: var(--ink); }
+  .logo-show.accent { background: var(--accent); }
+  .logo-show.cream { background: var(--bg); }
+
+  .clearspace {
+    position: relative; display: inline-block; padding: 40px;
+    border: 1px dashed var(--accent);
+  }
+  .clearspace img { display: block; height: 80px; }
+
+  /* ========== COMPONENTS ========== */
+  .comp-btn {
+    font-family: inherit; font-size: 11px; text-transform: lowercase; letter-spacing: 0.08em;
+    background: var(--ink); color: var(--bg); border: none; padding: 12px 20px; cursor: pointer;
+  }
+  .comp-btn:hover { background: var(--accent); }
+  .comp-btn.outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .comp-btn.outline:hover { background: var(--ink); color: var(--bg); }
+
+  .comp-pill {
+    display: inline-block; border: 1px solid var(--ink); padding: 5px 10px;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--ink);
+  }
+  .comp-pill.accent { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+  .comp-input {
+    display: flex; gap: 0; border: 1px solid var(--ink); background: var(--bg);
+    max-width: 420px;
+  }
+  .comp-input input {
+    flex: 1; border: none; background: transparent; outline: none;
+    font-family: inherit; font-size: 13px; padding: 12px 14px; color: var(--ink);
+  }
+  .comp-input input::placeholder { color: var(--muted); text-transform: lowercase; }
+
+  .callout {
+    border: 1px solid var(--ink); padding: 18px 22px; background: var(--white);
+    font-size: 12.5px; line-height: 1.7;
+  }
+  .callout.accent-border { border-left: 3px solid var(--accent); }
+  .callout b { color: var(--ink); }
+
+  /* Terminal label pattern */
+  .term-label {
+    font-size: 11px; font-family: inherit; color: var(--muted);
+    letter-spacing: 0.06em; text-transform: lowercase;
+  }
+  .term-label .v { color: var(--ink); font-weight: 600; }
+  .term-label .v-good { color: var(--accent); font-weight: 600; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    margin-top: 80px; padding: 16px 0;
+    border-top: 1px solid var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; flex-wrap: wrap;
+    font-size: 11px; letter-spacing: 0.06em; color: var(--muted);
+    text-transform: lowercase;
+  }
+  footer .foot-mark { color: var(--ink); font-weight: 600; letter-spacing: 0.08em; }
+  footer nav { display: flex; gap: 18px; }
+  footer nav a {
+    border: none; color: var(--muted);
+    text-transform: lowercase; letter-spacing: 0.06em; font-size: 11px;
+  }
+  footer nav a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    body { font-size: 13px; }
+    .wrap { padding: 28px 16px 80px; }
+    .hero h1 { font-size: 26px; }
+    .hero h1 .cursor { height: 22px; width: 10px; }
+    .masthead .brand img { height: 52px; }
+    .sec-head .rule { display: none; }
+    .h1-demo { font-size: 26px; }
+    .h2-demo { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ========== MASTHEAD ========== -->
+  <header class="masthead">
+    <a class="brand" href="https://100.partners" aria-label="100 Partners">
+      <img src="https://100.partners/assets/100p-logo.png" alt="100 Partners" />
+    </a>
+    <div class="meta">
+      <b>brand kit & style guide</b><br />
+      v1.0 · internal reference
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <h1>one system. every surface. no guessing.<span class="cursor" aria-hidden="true"></span></h1>
+    <p class="lede">
+      this is the complete visual and verbal identity for 100 partners. use it for every site, deck, blog post, partner asset, and collaboration. when in doubt, match this page.
+    </p>
+    <pre class="scan" aria-label="brand principles"><span>// aesthetic....... <span class="v">terminal minimal, editorial calm</span>
+// voice........... <span class="v">lowercase, direct, contrarian</span>
+// posture......... <span class="v">operator not marketer</span>
+<span class="row-winner">// feeling.........</span> <span class="v-good">quiet confidence</span></span></pre>
+  </section>
+
+  <!-- ========== 01 · LOGO ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/></svg>
+      <h2 class="label"><span class="num">01</span> · [<b>logo</b>] primary mark & clear space</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p">the mark is chunky italic "100." set over "partners" in heavy italic caps. always rendered in accent orange on cream or white. never recolored. never distorted.</p>
+
+    <div class="grid-2">
+      <div class="logo-show cream">
+        <img src="https://100.partners/assets/100p-logo.png" alt="100 Partners on cream" />
+      </div>
+      <div class="logo-show" style="background: var(--white);">
+        <img src="https://100.partners/assets/100p-logo.png" alt="100 Partners on white" />
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 14px;">
+      <div class="card">
+        <h3>clear space</h3>
+        <div style="display: flex; justify-content: center; padding: 12px 0;">
+          <div class="clearspace">
+            <img src="https://100.partners/assets/100p-logo.png" alt="clear space demo" />
+          </div>
+        </div>
+        <div class="foot">// minimum padding = height of the "1" in "100."</div>
+      </div>
+      <div class="card">
+        <h3>sizing</h3>
+        <div style="display: flex; align-items: flex-end; gap: 18px; padding: 12px 0;">
+          <img src="https://100.partners/assets/100p-logo.png" alt="64px" style="height: 64px;" />
+          <img src="https://100.partners/assets/100p-logo.png" alt="52px" style="height: 52px;" />
+          <img src="https://100.partners/assets/100p-logo.png" alt="32px" style="height: 32px;" />
+        </div>
+        <div class="foot">// desktop masthead 64px · mobile 52px · footer/favicon 32px min</div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 14px;">
+      <div class="vcard">
+        <span class="tag do">// do</span>
+        <ul>
+          <li>place on cream (#f6f5f1) or white</li>
+          <li>keep full clear space</li>
+          <li>use .png or .avif from /assets/</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <span class="tag dont">// don't</span>
+        <ul>
+          <li>recolor, outline, or add effects</li>
+          <li>stretch, crop, or rotate</li>
+          <li>place on busy photography</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <span class="tag do" style="background: var(--accent); border-color: var(--accent);">// wordmark</span>
+        <ul>
+          <li>lowercase text: <b>100 partners</b></li>
+          <li>all copy references: lowercase</li>
+          <li>url: 100.partners (always lowercase)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 · COLOR ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+      <h2 class="label"><span class="num">02</span> · [<b>color</b>] foundation + accent + semantic</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p">one bold accent, one warm neutral stack. the palette is restrained on purpose: orange punches harder when it appears once per page instead of ten.</p>
+
+    <h3 class="term-label" style="margin: 24px 0 10px;"><span class="v">// foundation</span></h3>
+    <div class="grid-4">
+      <div class="swatch">
+        <span class="chip bordered" style="background: #f6f5f1;"></span>
+        <div class="meta">
+          <div class="name">bg · cream</div>
+          <div class="hex">#f6f5f1 · rgb(246,245,241)</div>
+          <span class="role">page background</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <span class="chip" style="background: #0f0f0f;"></span>
+        <div class="meta">
+          <div class="name">ink · near-black</div>
+          <div class="hex">#0f0f0f · rgb(15,15,15)</div>
+          <span class="role">body, borders, type</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <span class="chip bordered" style="background: #8a8a85;"></span>
+        <div class="meta">
+          <div class="name">muted · warm gray</div>
+          <div class="hex">#8a8a85 · rgb(138,138,133)</div>
+          <span class="role">labels, captions, meta</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <span class="chip bordered" style="background: #d9d8d2;"></span>
+        <div class="meta">
+          <div class="name">soft · rule lines</div>
+          <div class="hex">#d9d8d2 · rgb(217,216,210)</div>
+          <span class="role">dividers, dotted rules</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="term-label" style="margin: 24px 0 10px;"><span class="v-good">// accent</span> <span style="color: var(--muted);">(signature)</span></h3>
+    <div class="grid-2">
+      <div class="swatch">
+        <span class="chip" style="background: #DB4A2B;"></span>
+        <div class="meta">
+          <div class="name">accent · terracotta</div>
+          <div class="hex">#DB4A2B · rgb(219,74,43)</div>
+          <span class="role">logo, cursor, links on body copy, hover states, key highlights</span>
+          <div class="note">// used sparingly. one dominant accent per screen.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <span class="chip" style="background: #ffffff; border-bottom: 1px solid var(--ink);"></span>
+        <div class="meta">
+          <div class="name">white · card bg</div>
+          <div class="hex">#ffffff · rgb(255,255,255)</div>
+          <span class="role">cards, input fields, testimonial blocks</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="term-label" style="margin: 24px 0 10px;"><span class="v">// semantic</span> <span style="color: var(--muted);">(reserved — use only for status, data viz, tags)</span></h3>
+    <div class="grid-4">
+      <div class="swatch">
+        <span class="chip" style="background: #3f7a5e;"></span>
+        <div class="meta"><div class="name">green</div><div class="hex">#3f7a5e</div><span class="role">success, positive</span></div>
+      </div>
+      <div class="swatch">
+        <span class="chip" style="background: #b88512;"></span>
+        <div class="meta"><div class="name">amber</div><div class="hex">#b88512</div><span class="role">warning, pending</span></div>
+      </div>
+      <div class="swatch">
+        <span class="chip" style="background: #b23a5c;"></span>
+        <div class="meta"><div class="name">rose</div><div class="hex">#b23a5c</div><span class="role">error, attention</span></div>
+      </div>
+      <div class="swatch">
+        <span class="chip" style="background: #3a4a9e;"></span>
+        <div class="meta"><div class="name">indigo</div><div class="hex">#3a4a9e</div><span class="role">info, neutral flag</span></div>
+      </div>
+    </div>
+
+    <div class="callout accent-border" style="margin-top: 18px;">
+      <b>// rule of one:</b> on any given screen, accent should appear at roughly one focal point (the logo, the cursor, a link cluster, or a CTA hover). if two things are competing for attention in orange, one is wrong.
+    </div>
+  </section>
+
+  <!-- ========== 03 · TYPOGRAPHY ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7V5h14v2M12 5v14M9 19h6"/></svg>
+      <h2 class="label"><span class="num">03</span> · [<b>typography</b>] one family. all weights.</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p"><b>jetbrains mono</b> — weights 400, 500, 600. monospace everywhere. fallback stack: <code>ui-monospace, SFMono-Regular, Menlo, monospace</code>.</p>
+    <p class="block-p muted">google fonts: <code>https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap</code></p>
+
+    <div class="type-row">
+      <div class="demo h1-demo">master the most unobvious channel</div>
+      <div class="spec"><b>h1</b> · 34px / 500 · lowercase · -0.01em · 1.22</div>
+    </div>
+    <div class="type-row">
+      <div class="demo h2-demo">section heading at this scale</div>
+      <div class="spec"><b>h2</b> · 22px / 500 · lowercase · -0.01em · 1.25</div>
+    </div>
+    <div class="type-row">
+      <div class="demo h3-demo">Subhead Sentence Case At This Weight</div>
+      <div class="spec"><b>h3</b> · 17px / 600 · sentence case · -0.005em · 1.3</div>
+    </div>
+    <div class="type-row">
+      <div class="demo body-demo">Body copy reads at 14px with generous 1.78 line-height. Paragraphs stay under 680px wide for comfortable reading. Sentence case is allowed in body copy and blog posts — lowercase is reserved for display, labels, and UI.</div>
+      <div class="spec"><b>body</b> · 14px / 400 · sentence case ok · 1.78</div>
+    </div>
+    <div class="type-row">
+      <div class="demo small-demo">// <b>meta label</b> · status line format</div>
+      <div class="spec"><b>label</b> · 11px / 400 · lowercase · 0.08em · muted</div>
+    </div>
+    <div class="type-row">
+      <div class="demo" style="font-size: 10px; letter-spacing: 0.12em; text-transform: lowercase; color: var(--accent); font-weight: 600;">// eyebrow on ctas</div>
+      <div class="spec"><b>eyebrow</b> · 10px / 600 · lowercase · 0.12em · accent</div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 18px;">
+      <div class="vcard">
+        <span class="tag do">// do</span>
+        <ul>
+          <li>lowercase for display, headings, ui labels, links</li>
+          <li>sentence case in blog body copy</li>
+          <li>letter-spacing 0.04–0.14em on small caps</li>
+          <li>use monospace everywhere — no exceptions</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <span class="tag dont">// don't</span>
+        <ul>
+          <li>introduce a sans-serif for "variety"</li>
+          <li>use uppercase (unless it's inside the logo)</li>
+          <li>mix bold and italic in display type</li>
+          <li>use em dashes (—). ever.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 · SPACING & LAYOUT ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16M4 20h16M4 4v16M20 4v16"/></svg>
+      <h2 class="label"><span class="num">04</span> · [<b>spacing</b>] the 4-8-16 scale</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p">vertical rhythm is aggressive. whitespace IS the design — it's what makes the minimal terminal aesthetic feel editorial instead of austere.</p>
+
+    <div class="ruler">
+      <div class="tick"><span class="lbl"><b>4px</b> · hairline</span><span class="bar" style="width: 4px;"></span></div>
+      <div class="tick"><span class="lbl"><b>8px</b> · tight</span><span class="bar" style="width: 8px;"></span></div>
+      <div class="tick"><span class="lbl"><b>14px</b> · card gap</span><span class="bar" style="width: 14px;"></span></div>
+      <div class="tick"><span class="lbl"><b>18px</b> · para break</span><span class="bar" style="width: 18px;"></span></div>
+      <div class="tick"><span class="lbl"><b>24px</b> · card padding</span><span class="bar" style="width: 24px;"></span></div>
+      <div class="tick"><span class="lbl"><b>28px</b> · page inset (mobile)</span><span class="bar" style="width: 28px;"></span></div>
+      <div class="tick"><span class="lbl"><b>40px</b> · wrap top/bottom</span><span class="bar" style="width: 40px;"></span></div>
+      <div class="tick"><span class="lbl"><b>56px</b> · major section</span><span class="bar" style="width: 56px;"></span></div>
+      <div class="tick"><span class="lbl"><b>72px</b> · sec-head margin-top</span><span class="bar" style="width: 72px;"></span></div>
+      <div class="tick"><span class="lbl"><b>120px</b> · wrap bottom (desktop)</span><span class="bar" style="width: 120px;"></span></div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 14px;">
+      <div class="card">
+        <h3>content width</h3>
+        <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.85;">
+          <li><b>homepage / landing:</b> 820px max</li>
+          <li><b>blog post:</b> 720px max</li>
+          <li><b>mobile inset:</b> 16px</li>
+          <li><b>desktop inset:</b> 28px</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>borders & rules</h3>
+        <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.85;">
+          <li><b>card/block:</b> 1px solid ink</li>
+          <li><b>section rule:</b> 1px solid soft</li>
+          <li><b>soft divider:</b> 1px dotted soft</li>
+          <li><b>accent divider:</b> 2–3px solid accent (left-edge only)</li>
+          <li><b>radius:</b> 0 (flat corners everywhere except avatars)</li>
+          <li><b>shadow:</b> none</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 · IMAGERY ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-9 8"/></svg>
+      <h2 class="label"><span class="num">05</span> · [<b>imagery</b>] headshots, logos, hero art</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p">images live inside 1px ink borders. no drop shadows. no soft backgrounds. photography is muted and editorial — if it looks stocky, it's wrong.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>headshots</h3>
+        <div style="display: flex; gap: 14px; align-items: center; padding: 8px 0;">
+          <span style="width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 1px solid var(--ink); background: var(--soft); display: inline-block;"></span>
+          <span style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 1px solid var(--ink); background: var(--soft); display: inline-block;"></span>
+          <span style="width: 32px; height: 32px; border-radius: 50%; overflow: hidden; border: 1px solid var(--ink); background: var(--soft); display: inline-block;"></span>
+        </div>
+        <div class="foot">// circular · 1px ink border · object-fit cover · 56/44/32</div>
+      </div>
+      <div class="card">
+        <h3>company logos</h3>
+        <div style="padding: 8px 0; font-size: 11px; color: var(--muted); line-height: 1.7;">
+          height: <b style="color: var(--ink);">18px</b><br />
+          max-width: <b style="color: var(--ink);">140px</b><br />
+          opacity: <b style="color: var(--ink);">0.85</b><br />
+          filter: <b style="color: var(--ink);">none</b> (keep native color)
+        </div>
+        <div class="foot">// flat lockup on light bg. no grayscale treatment.</div>
+      </div>
+      <div class="card">
+        <h3>blog hero art</h3>
+        <div style="width: 100%; aspect-ratio: 16/9; border: 1px solid var(--ink); background: var(--soft); margin: 4px 0;"></div>
+        <div class="foot">// full-bleed inside wrap · 1px ink border · 720px max width</div>
+      </div>
+    </div>
+
+    <div class="callout accent-border" style="margin-top: 14px;">
+      <b>// no illustrations, no icons at scale, no gradients.</b> the terminal scan block, the blinking cursor, and small svg line-icons in section headers are the only "graphic" flourishes. everything else is typography.
+    </div>
+  </section>
+
+  <!-- ========== 06 · COMPONENTS ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      <h2 class="label"><span class="num">06</span> · [<b>components</b>] the building blocks</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>buttons</h3>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; padding: 8px 0;">
+          <button class="comp-btn" type="button">let's partner</button>
+          <button class="comp-btn outline" type="button">learn more</button>
+        </div>
+        <div class="foot">// primary: ink bg → accent on hover · outline: ink border → ink fill on hover</div>
+      </div>
+
+      <div class="card">
+        <h3>input + submit</h3>
+        <form class="comp-input" onsubmit="return false;">
+          <input type="email" placeholder="you@company.com" />
+          <button class="comp-btn" type="submit">subscribe</button>
+        </form>
+        <div class="foot">// flat bg, 1px ink border, no rounded corners</div>
+      </div>
+
+      <div class="card">
+        <h3>pills & tags</h3>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; padding: 8px 0;">
+          <span class="comp-pill">// partner hq</span>
+          <span class="comp-pill accent">// new</span>
+          <span class="comp-pill">// p90</span>
+        </div>
+        <div class="foot">// lowercase · 0.08em tracking · 1px border</div>
+      </div>
+
+      <div class="card">
+        <h3>section header</h3>
+        <div style="padding: 8px 0;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; stroke: var(--ink); stroke-width: 1.25; fill: none;"><circle cx="12" cy="12" r="9"/></svg>
+            <span class="term-label">[<b style="color: var(--ink);">label</b>] description text</span>
+            <span style="flex: 1; border-bottom: 1px solid var(--soft);"></span>
+          </div>
+        </div>
+        <div class="foot">// svg · lowercase label · ruled line fills remaining space</div>
+      </div>
+
+      <div class="card">
+        <h3>testimonial card</h3>
+        <figure style="margin: 0; padding: 8px 0; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--ink); background: var(--soft); flex: none;"></span>
+          <blockquote style="margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--ink);">
+            <span style="color: var(--accent);">&ldquo;</span>sample quote treatment with accent smart-quotes and a dotted footer rule.<span style="color: var(--accent);">&rdquo;</span>
+          </blockquote>
+        </figure>
+        <div class="foot">// quotes in accent · 56px headshot · 1px dotted footer rule</div>
+      </div>
+
+      <div class="card">
+        <h3>terminal scan block</h3>
+        <pre style="border: 1px solid var(--ink); background: var(--bg); padding: 12px 14px; font-size: 11px; line-height: 1.8; color: var(--muted); white-space: pre; overflow-x: auto; margin: 8px 0 0;"><span>// status......... <span style="color: var(--ink); font-weight: 600;">synced</span>
+<span style="color: var(--ink); font-weight: 600;">// key row.......</span> <span style="color: var(--accent); font-weight: 600;">highlighted</span></span></pre>
+        <div class="foot">// monospace · // prefix · accent highlight on winning row</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 · VOICE ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 12h10M4 16h16"/></svg>
+      <h2 class="label"><span class="num">07</span> · [<b>voice</b>] how we sound</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p">100 partners talks like an operator who's been in the trenches, not a marketer reading a script. short sentences. contrarian angles. specific numbers over adjectives.</p>
+
+    <div class="grid-3">
+      <div class="vcard">
+        <span class="tag do">// voice</span>
+        <ul>
+          <li>lowercase in display & ui</li>
+          <li>direct, declarative, contrarian</li>
+          <li>name real companies, real numbers, real outcomes</li>
+          <li>use <code>//</code> comment prefix for meta lines</li>
+          <li>use <code>[bracketed labels]</code> for category tags</li>
+        </ul>
+        <div class="quote">"master the most unobvious sales channel sitting in plain sight."</div>
+      </div>
+      <div class="vcard">
+        <span class="tag dont">// anti-voice</span>
+        <ul>
+          <li>no em dashes (—) — ever</li>
+          <li>no "revolutionary" / "game-changing" / "synergies"</li>
+          <li>no exclamation marks outside of transactional emails</li>
+          <li>no emojis in body copy (ok sparingly in newsletter)</li>
+          <li>no corporate hedge-speak</li>
+        </ul>
+        <div class="quote" style="border-left-color: var(--muted); color: var(--muted);">"revolutionize your growth with our cutting-edge partner ecosystem solutions."</div>
+      </div>
+      <div class="vcard">
+        <span class="tag do" style="background: var(--accent); border-color: var(--accent);">// signature moves</span>
+        <ul>
+          <li>open with the contrarian claim</li>
+          <li>prove it with a named customer + number</li>
+          <li>end with the one-line CTA in lowercase</li>
+          <li>blinking cursor after display headlines</li>
+          <li>terminal scan for comparison or status</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout accent-border" style="margin-top: 14px;">
+      <b>// house phrases:</b> "partner program installed in 90 days" · "the most unobvious sales channel" · "ai commoditized content. trust is what's left." · "let's partner."
+    </div>
+  </section>
+
+  <!-- ========== 08 · APPLICATIONS ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>
+      <h2 class="label"><span class="num">08</span> · [<b>applications</b>] where the system shows up</h2>
+      <div class="rule"></div>
+    </div>
+
+    <p class="block-p">every surface the brand touches uses the same tokens. the system is the moat — don't rebuild it for a one-off deck.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>web surfaces</h3>
+        <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.85;">
+          <li><b>100.partners</b> — homepage, capture, social proof</li>
+          <li><b>100.partners/blog</b> — 720px width, hero image, author block</li>
+          <li><b>100.partners/hq</b> — logged-in partner portal</li>
+          <li><b>docs.100.partners</b> — internal assets + client deliverables (via publish-internal skill)</li>
+          <li><b>program.100.partners</b> — dub-powered partner app</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>assets & deliverables</h3>
+        <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.85;">
+          <li><b>partner gtm kits</b> — co-branded html partner hq pages</li>
+          <li><b>newsletter</b> — resend broadcasts, 1 email / wk cadence</li>
+          <li><b>pitch decks</b> — keep mono font, cream bg, accent sparingly</li>
+          <li><b>pdfs & reports</b> — 720px content column, same token set</li>
+          <li><b>social images</b> — 1200x630 og cards · ink type on cream</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 14px;">
+      <b>// when starting anything new:</b> copy the :root token block from this page. use jetbrains mono. keep the wrap max-width under 820px. one accent per focal point. if it doesn't feel like <a href="https://100.partners">100.partners</a>, it's not done.
+    </div>
+  </section>
+
+  <!-- ========== 09 · QUICK REFERENCE ========== -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      <h2 class="label"><span class="num">09</span> · [<b>quick reference</b>] copy-paste tokens</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="card" style="font-size: 12px; line-height: 1.9;">
+      <h3>:root tokens (paste into any new stylesheet)</h3>
+<pre style="background: var(--bg); border: 1px solid var(--soft); padding: 16px; overflow-x: auto; font-size: 11.5px; line-height: 1.7; margin: 10px 0 0;">:root {
+  --bg:      #f6f5f1;   /* cream page bg */
+  --ink:     #0f0f0f;   /* type & borders */
+  --muted:   #8a8a85;   /* labels & meta */
+  --soft:    #d9d8d2;   /* rule lines */
+  --white:   #ffffff;   /* card bg */
+  --accent:  #DB4A2B;   /* terracotta signature */
+
+  --green:   #3f7a5e;   /* semantic: success */
+  --amber:   #b88512;   /* semantic: warning */
+  --rose:    #b23a5c;   /* semantic: error */
+  --indigo:  #3a4a9e;   /* semantic: info */
+
+  --maxw:    820px;     /* 720 for blog */
+}
+
+body {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13.5px; font-weight: 400; line-height: 1.65;
+  background: var(--bg); color: var(--ink);
+}</pre>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <span class="foot-mark">// 100 partners · brand kit v1.0</span>
+    <nav>
+      <a href="https://100.partners">100.partners</a>
+      <a href="https://100.partners/blog">blog</a>
+      <a href="https://docs.100.partners">docs</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>
