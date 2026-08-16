@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>100 Partners MCP &middot; agent briefing</title>
+<link rel="icon" type="image/png" href="https://100.partners/assets/100p-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f6f5f1;--ink:#0f0f0f;--muted:#8a8a85;--soft:#d9d8d2;--accent:#DB4A2B;--card:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;line-height:1.65}
+  .wrap{max-width:860px;margin:0 auto;padding:48px 22px 96px}
+  header{border-bottom:1px solid var(--soft);padding-bottom:22px;margin-bottom:34px}
+  .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h1{font-size:26px;font-weight:600;margin:0 0 8px;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:13px;margin:0}
+  h2{font-size:17px;font-weight:600;margin:44px 0 6px;letter-spacing:-.01em}
+  h2 .num{color:var(--accent);margin-right:8px}
+  h3{font-size:14px;font-weight:600;margin:26px 0 6px}
+  p{margin:10px 0}
+  .lede{color:var(--muted);margin:0 0 18px;font-size:13px}
+  .card{background:var(--card);border:1px solid var(--soft);border-radius:10px;padding:18px 20px;margin:16px 0}
+  .card.warn{border-left:3px solid var(--accent)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--soft);vertical-align:top}
+  th{font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  td code{background:#f0efe9;padding:1px 5px;border-radius:4px;font-size:12px}
+  code{font-family:inherit}
+  pre{background:#12120f;color:#e9e7df;border-radius:10px;padding:18px 20px;overflow-x:auto;
+      font-size:12.5px;line-height:1.6;margin:0;white-space:pre-wrap;word-break:break-word}
+  .block{position:relative;margin:14px 0}
+  .copy{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;border:none;
+        border-radius:6px;padding:7px 14px;font-family:inherit;font-size:11px;font-weight:500;
+        cursor:pointer;letter-spacing:.04em}
+  .copy:hover{opacity:.88}
+  .copy.done{background:#3f7d58}
+  ul,ol{margin:10px 0;padding-left:20px}
+  li{margin:6px 0}
+  .pill{display:inline-block;background:#f0efe9;border:1px solid var(--soft);border-radius:20px;
+        padding:2px 11px;font-size:11px;color:var(--muted);margin-right:6px}
+  .foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--soft);color:var(--muted);font-size:12px}
+  strong{font-weight:600}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">100 Partners &middot; internal</p>
+  <h1>MCP agent briefing</h1>
+  <p class="sub">Everything Grokbot and Wendy need to read the 100 Partners client system. Updated 16 Aug 2026.</p>
+</header>
+
+<h2><span class="num">1</span>Connector setup</h2>
+<p class="lede">For whoever configures the connector. The key is <strong>not</strong> on this page: it is in 1Password.</p>
+<div class="block">
+  <button class="copy" data-target="conn">Copy</button>
+  <pre id="conn">Server URL:  https://mcp.100.partners/mcp
+Transport:   Streamable HTTP (JSON-RPC 2.0)
+             /sse resolves to the same handler if your client defaults there
+Auth:        Authorization: Bearer &lt;key&gt;
+             X-Api-Key: &lt;key&gt; also accepted
+Tools:       list_clients, get_client, get_checklist, list_calls, get_call
+Access:      Read-only. Paying Sprint clients only.
+Not here:    nextCall is always null. Upcoming calls live in Google Calendar.</pre>
+</div>
+<p>The key lives in 1Password, vault <strong>100 Partners - Hundo App</strong>, item
+<strong>Hundo MCP_READ_KEY - Grokbot connector</strong>. Paste it into the connector's secure
+field. Never into a chat window, a doc, or this page.</p>
+
+<h2><span class="num">2</span>Agent instructions</h2>
+<p class="lede">Paste this whole block into Wendy's instructions, and into any account agent that touches client work.</p>
+<div class="block">
+  <button class="copy" data-target="instr">Copy agent instructions</button>
+  <pre id="instr">You have read access to the live 100 Partners client system through the MCP server
+at https://mcp.100.partners/mcp. This is the real operational record for TG's
+consulting clients: where each one is in their 90-day sprint, what they owe, what
+he owes them, and what was said on every call. Treat it as the source of truth
+over anything in Slack or a doc.
+
+WHAT YOU CAN SEE
+Exactly the paying Sprint clients. Churned and prospective companies are filtered
+out before you see them, so if a name is missing from list_clients, they are not a
+current client and you must not invent one.
+
+Everything is READ-ONLY. There are no write tools. You cannot mark a step done,
+message a client, or change anything. When work needs doing, your output is a
+recommendation to TG, not an action.
+
+THE FIVE TOOLS
+- list_clients  Always start here. Whole roster, pacing, open action counts, last
+                call. One call answers "who needs me today".
+- get_client    Prepping for a specific client. Profile, key facts, open actions
+                with owners, contacts, portal link, recent conversation recaps.
+- get_checklist "What should they be working on?" Every step with owner and
+                status, what is in flight, what is next.
+- list_calls    Call history for one client, with follow-up items.
+- get_call      Full notes or transcript of one call, by the id list_calls gave you.
+
+Every per-client tool takes `email`, and it must be the exact address from
+list_clients. Anything else is refused by design.
+
+THE MODEL YOU ARE REASONING ABOUT
+The 90-day Sprint. Every client buys a 90-day engagement to install a partner
+program. It runs across 8 levels: 1 Audit, 2 Design, 3 Foundation (done once, in
+order), 4 Recruit, 5 Activate, 6 Collaborate, 7 Nurture (the ongoing operating
+loop), 8 Analyze (bi-weekly). Under those sits a 91-step checklist, tailored per
+client.
+
+PACING IS THE NUMBER THAT MATTERS. sprint.pace is on-or-ahead, slipping, or
+behind. It compares percent of steps completed against percent of the calendar
+elapsed. This is the whole point: 27 of 91 steps is ahead in week 2 and a rescue
+in week 11. Never report a raw step count as if it were progress, and never call
+someone behind without checking the week.
+
+EVERY STEP AND TASK HAS AN OWNER: tg, customer, or hundo. Before saying a client
+is stuck, check who the open work belongs to. If the open items are owned by tg,
+the client is not the problem, TG is the bottleneck, and that is the more useful
+thing to say.
+
+HUNDO is the AI partnerships copilot the client talks to inside the app.
+recentSessions are recaps of those conversations, and activity.messages shows
+whether they are actually using it. A client with zero messages in weeks is
+disengaged even if their step count looks fine.
+
+WHAT IS NOT IN HERE
+- Upcoming calls. nextCall is always null. Scheduled calls live in TG's Google
+  Calendar. Read them there and join the two yourself.
+- Call recordings. Granola holds those. This system holds the notes and
+  transcripts TG saved into the client record.
+- The client's partner roster. You get partner counts and partner-driven revenue,
+  not individual partners. That is the client's own CRM.
+- Anything about non-clients. Prospects, churned companies and TG's internal
+  accounts are invisible here on purpose.
+
+LINKS YOU CAN HAND TO A HUMAN
+portal.url is the client's own gated page, with portal.passphrase. Not every
+client has one yet. dashboardUrl is TG's admin view of that client; it needs his
+login, so give him the link rather than trying to open it.
+
+HOW TO USE THIS
+Morning pass: call list_clients. Sort by sprint.pace. Anyone behind or slipping is
+the agenda. For each, check whether the open actions are owned by tg or the
+customer, because those are two completely different conversations.
+
+Call prep: get_client for state and contacts, get_checklist for inFlight and
+nextUp, then get_call on the most recent call so you can open with what was
+actually agreed last time. Cross-reference Google Calendar for when the call is.
+
+A status answer leads with pace and week, not level. "Omnia is in week 4 of 13 and
+behind: 7% of steps done against 27% of the calendar, and 5 open items, 4 of them
+theirs" beats "Omnia is on Level 2."
+
+RULES
+1. Never invent a client, a step, a date, or a call. If it is not in the data, say
+   it is not in the data.
+2. This is confidential client material, including full call transcripts. It goes
+   to TG and the internal team. It does not go into anything client-facing,
+   public, or cross-client. Never quote one client's call to another.
+3. You cannot change anything. Recommend; do not assert that something has been
+   done.
+4. Check the week before judging pace.
+5. Say who owns the work. Every "they are behind" should name whether the blocked
+   items belong to the client, to TG, or to Hundo.</pre>
+</div>
+
+<h2><span class="num">3</span>What each field means</h2>
+<table>
+  <tr><th>Field</th><th>Read it as</th></tr>
+  <tr><td><code>sprint.pace</code></td><td>on-or-ahead / slipping / behind. The headline number. Completion percent minus calendar percent.</td></tr>
+  <tr><td><code>sprint.week</code></td><td>Week N of 13. Always pair with pace; a step count alone means nothing.</td></tr>
+  <tr><td><code>stage.level</code></td><td>1-8 in the P90 arc. Levels 1-3 happen once, 4-7 are the operating loop, 8 is bi-weekly.</td></tr>
+  <tr><td><code>openActions[].assignee</code></td><td>tg / customer / hundo. Who is actually blocking.</td></tr>
+  <tr><td><code>inFlight</code> / <code>nextUp</code></td><td>Live steps and the next ten pending. Answers "what this week".</td></tr>
+  <tr><td><code>activity.messages</code></td><td>Engagement with Hundo. Zero for weeks = disengaged regardless of steps.</td></tr>
+  <tr><td><code>partners</code></td><td>Counts and partner-driven revenue in cents. Not the roster.</td></tr>
+  <tr><td><code>nextCall</code></td><td>Always null. Use Google Calendar.</td></tr>
+</table>
+
+<h2><span class="num">4</span>Giving Wendy access</h2>
+<div class="card">
+  <p style="margin-top:0"><strong>If Wendy runs inside Grokbot</strong>, she already has it. The connector is
+  configured once and every agent under it inherits the same access. Paste the section 2 block
+  into her instructions and she is done. Nothing else to issue.</p>
+  <p style="margin-bottom:0"><strong>If Wendy is a separate surface</strong> with her own connector settings, she needs the
+  same URL plus a key. Ask TG for a second key so hers can be revoked without cutting off
+  Grokbot.</p>
+</div>
+
+<h2><span class="num">5</span>Boundaries</h2>
+<div class="card warn">
+  <p style="margin-top:0">The connector cannot write. No tool marks a step done, edits a task, or
+  sends a message. That is enforced in the server's type system, not by policy, so it cannot be
+  talked around.</p>
+  <p style="margin-bottom:0">It also cannot see anyone who is not a current paying client. Churned
+  customers, prospects, trial signups and internal accounts are filtered out before any tool runs.</p>
+</div>
+
+<p class="foot">
+  <span class="pill">read-only</span>
+  <span class="pill">paying clients only</span>
+  <span class="pill">key in 1Password</span>
+  <br><br>
+  Source of truth for this page: <code>hundo-app/docs/mcp-agent-guide.md</code>.
+  Server: <code>hundo-app/src/hundo/mcp-core.ts</code>.
+</p>
+
+</div>
+<script>
+document.querySelectorAll(".copy").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var el = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(el.innerText).then(function(){
+      var was = btn.textContent;
+      btn.textContent = "Copied";
+      btn.classList.add("done");
+      setTimeout(function(){ btn.textContent = was; btn.classList.remove("done"); }, 1800);
+    });
+  });
+});
+</script>
+</body>
+</html>
