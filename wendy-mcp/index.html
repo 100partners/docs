@@ -66,13 +66,21 @@ Transport:   Streamable HTTP (JSON-RPC 2.0)
              /sse resolves to the same handler if your client defaults there
 Auth:        Authorization: Bearer &lt;key&gt;
              X-Api-Key: &lt;key&gt; also accepted
-Tools:       list_clients, get_client, get_checklist, list_calls, get_call
-Access:      Read-only. Paying Sprint clients only.
+Read tools:  list_clients, get_client, get_checklist, list_calls, get_call
+Write tools: add_note, add_call, add_task, complete_task, set_step_status
+Access:      Paying Sprint clients only. Two keys:
+               MCP_READ_KEY   read tools only
+               MCP_WRITE_KEY  read + write (implies read, use one or the other)
 Not here:    nextCall is always null. Upcoming calls live in Google Calendar.</pre>
 </div>
-<p>The key lives in 1Password, vault <strong>100 Partners - Hundo App</strong>, item
-<strong>Hundo MCP_READ_KEY - Grokbot connector</strong>. Paste it into the connector's secure
+<p>Both keys live in 1Password, vault <strong>100 Partners - Hundo App</strong>:
+<strong>Hundo MCP_READ_KEY - Grokbot connector</strong> and
+<strong>Hundo MCP_WRITE_KEY - Grokbot agents</strong>. Paste one into the connector's secure
 field. Never into a chat window, a doc, or this page.</p>
+<div class="card warn"><p style="margin:0"><strong>One connector, one capability.</strong> Every agent
+under a connector inherits its key. If the connector holds the write key, every agent can write.
+For a mix, run two connectors: read-key agents for reporting, write-key agents for the ones that
+manage a client.</p></div>
 
 <h2><span class="num">2</span>Agent instructions</h2>
 <p class="lede">Paste this whole block into Wendy's instructions, and into any account agent that touches client work.</p>
@@ -89,11 +97,7 @@ Exactly the paying Sprint clients. Churned and prospective companies are filtere
 out before you see them, so if a name is missing from list_clients, they are not a
 current client and you must not invent one.
 
-Everything is READ-ONLY. There are no write tools. You cannot mark a step done,
-message a client, or change anything. When work needs doing, your output is a
-recommendation to TG, not an action.
-
-THE FIVE TOOLS
+THE READ TOOLS
 - list_clients  Always start here. Whole roster, pacing, open action counts, last
                 call. One call answers "who needs me today".
 - get_client    Prepping for a specific client. Profile, key facts, open actions
@@ -105,6 +109,32 @@ THE FIVE TOOLS
 
 Every per-client tool takes `email`, and it must be the exact address from
 list_clients. Anything else is refused by design.
+
+THE WRITE TOOLS
+These appear only if your key carries write access. If you can see them, you can
+move a client's project forward yourself rather than only reporting on it.
+- add_note       You learned something the next person needs. Hundo reads these,
+                 so the client's copilot becomes aware of it. Not a message to
+                 the client; they do not receive it.
+- add_call       After a call. Notes or a full transcript. The highest-value
+                 thing to write, because it becomes durable memory.
+- add_task       New action item. Set assignee to who actually owns it:
+                 customer, tg, or hundo.
+- complete_task  Tick an item off, or reopen it with status "open".
+- set_step_status  Move a sprint step: pending, active, done, waived.
+
+Every write is stamped as coming from an agent, so TG can tell your edits from
+his and reverse them. That is a safety net, not a licence: write as if it were
+permanent.
+
+set_step_status and add_task are VISIBLE TO THE CLIENT. They see the checkmarks
+in their app, and Hundo talks to them based on that state. Marking a step done
+tells the client work happened. Only do it when you have evidence the deliverable
+actually exists, from a call, a note, or an asset. If you are inferring, add a
+note instead and let TG confirm.
+
+You cannot message a client, change their access or billing, edit their profile,
+or delete anything. Those are not available to any key.
 
 THE MODEL YOU ARE REASONING ABOUT
 The 90-day Sprint. Every client buys a 90-day engagement to install a partner
@@ -163,11 +193,13 @@ RULES
 2. This is confidential client material, including full call transcripts. It goes
    to TG and the internal team. It does not go into anything client-facing,
    public, or cross-client. Never quote one client's call to another.
-3. You cannot change anything. Recommend; do not assert that something has been
-   done.
-4. Check the week before judging pace.
-5. Say who owns the work. Every "they are behind" should name whether the blocked
-   items belong to the client, to TG, or to Hundo.</pre>
+3. Check the week before judging pace.
+4. Say who owns the work. Every "they are behind" should name whether the blocked
+   items belong to the client, to TG, or to Hundo.
+5. Only mark done what is actually done. A step marked done is a claim to the
+   client that work happened. Evidence first, then the checkmark.
+6. Write the record after every call: add_call with the notes, then add_task for
+   each thing someone owes. That is what makes the next conversation good.</pre>
 </div>
 
 <h2><span class="num">3</span>What each field means</h2>
@@ -195,15 +227,16 @@ RULES
 
 <h2><span class="num">5</span>Boundaries</h2>
 <div class="card warn">
-  <p style="margin-top:0">The connector cannot write. No tool marks a step done, edits a task, or
-  sends a message. That is enforced in the server's type system, not by policy, so it cannot be
-  talked around.</p>
+  <p style="margin-top:0">A read key cannot write. The write handle does not exist for a
+  read caller, so guessing a tool name achieves nothing. That is enforced in the server's type
+  system, not by policy.</p>
+  <p>No key can message a client, change access or billing, edit a profile, or delete anything.</p>
   <p style="margin-bottom:0">It also cannot see anyone who is not a current paying client. Churned
   customers, prospects, trial signups and internal accounts are filtered out before any tool runs.</p>
 </div>
 
 <p class="foot">
-  <span class="pill">read-only</span>
+  <span class="pill">read + scoped write</span>
   <span class="pill">paying clients only</span>
   <span class="pill">key in 1Password</span>
   <br><br>
