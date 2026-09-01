@@ -35,9 +35,6 @@
   header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
     border-bottom: 1px solid var(--ink);
     padding-bottom: 16px;
     margin-bottom: 24px;
@@ -45,12 +42,10 @@
   .lockup {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   }
-  .word { font-weight: 600; font-size: 16px; letter-spacing: -0.02em; }
-  .word span { color: var(--accent); }
-  .marks { display: flex; align-items: center; gap: 10px; }
-  .marks img { display: block; height: 40px; width: 40px; object-fit: cover; }
+  .lockup img { display: block; height: 40px; width: 40px; object-fit: cover; }
+  .lockup .sep { color: var(--muted); font-weight: 500; font-size: 18px; line-height: 1; }
   h1 {
     font-size: 26px;
     font-weight: 500;
@@ -125,11 +120,9 @@
   <div class="wrap">
     <header>
       <div class="lockup">
-        <div class="word">100 partners<span>.</span></div>
-        <div class="marks">
-          <img src="assets/100p-logo.png" alt="100 Partners">
-          <img src="assets/hundred-logo.svg" alt="Hundred">
-        </div>
+        <img src="assets/100p-logo.png" alt="100 Partners">
+        <span class="sep" aria-hidden="true">—</span>
+        <img src="assets/hundred-logo.svg" alt="Hundred">
       </div>
     </header>
 
