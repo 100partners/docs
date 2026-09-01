@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
-<title>Hundred — partner program landscape</title>
-<link rel="icon" type="image/png" href="https://100.partners/assets/100p-logo.png">
+<title>Hundred's Competitive Partner Landscape</title>
+<link rel="icon" type="image/svg+xml" href="assets/hundred-logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,43 +26,48 @@
     color: var(--ink);
     font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 14px;
-    line-height: 1.55;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 80px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 36px 24px 64px; }
   header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 14px;
-    margin-bottom: 28px;
     gap: 16px;
     flex-wrap: wrap;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
   }
-  .brand { font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
-  .brand span { color: var(--accent); }
-  .meta { color: var(--muted); font-size: 11px; letter-spacing: 0.06em; text-transform: lowercase; }
+  .lockup {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .word { font-weight: 600; font-size: 16px; letter-spacing: -0.02em; }
+  .word span { color: var(--accent); }
+  .marks { display: flex; align-items: center; gap: 10px; }
+  .marks img { display: block; height: 40px; width: 40px; object-fit: cover; }
   h1 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 500;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
   }
-  .lede { max-width: 720px; color: var(--ink); margin: 0 0 28px; }
-  .lede strong { font-weight: 600; }
+  .lede { max-width: 680px; margin: 0 0 24px; }
   .stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1px;
     background: var(--soft);
     border: 1px solid var(--soft);
-    margin: 0 0 36px;
+    margin: 0 0 28px;
   }
-  .stat { background: var(--white); padding: 16px 14px; }
+  .stat { background: var(--white); padding: 14px 12px; }
   .stat b { display: block; font-size: 22px; font-weight: 600; letter-spacing: -0.03em; }
   .stat span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; text-transform: lowercase; }
   .stat.hot b { color: var(--accent); }
@@ -73,18 +78,18 @@
     text-transform: lowercase;
     border-bottom: 1px solid var(--ink);
     padding-bottom: 8px;
-    margin: 36px 0 14px;
+    margin: 32px 0 12px;
   }
   .note {
     background: var(--white);
     border: 1px solid var(--ink);
-    padding: 16px 18px;
-    margin: 0 0 28px;
+    padding: 14px 16px;
+    margin: 0 0 24px;
   }
   .note p { margin: 0; }
   .scroll { overflow-x: auto; border: 1px solid var(--ink); background: var(--white); }
-  table { width: 100%; border-collapse: collapse; min-width: 920px; }
-  th, td { text-align: left; vertical-align: top; padding: 12px 12px; border-bottom: 1px solid var(--soft); }
+  table { width: 100%; border-collapse: collapse; min-width: 860px; }
+  th, td { text-align: left; vertical-align: top; padding: 11px 12px; border-bottom: 1px solid var(--soft); }
   th {
     font-size: 11px;
     letter-spacing: 0.06em;
@@ -92,34 +97,24 @@
     color: var(--muted);
     font-weight: 500;
     background: var(--bg);
-    position: sticky;
-    top: 0;
   }
   tr:last-child td { border-bottom: 0; }
-  tr.you td { background: #fff4ef; }
-  .rank { font-weight: 600; color: var(--muted); width: 36px; }
-  tr.you .rank { color: var(--accent); }
+  .rank { font-weight: 600; color: var(--muted); width: 28px; }
   .name { font-weight: 600; }
   .sub { display: block; color: var(--muted); font-size: 12px; font-weight: 400; margin-top: 2px; }
   .pill {
     display: inline-block;
-    border: 1px solid var(--ink);
+    border: 1px solid var(--accent);
+    color: var(--accent);
     padding: 1px 6px;
     font-size: 11px;
     letter-spacing: 0.04em;
     text-transform: lowercase;
     margin-top: 6px;
   }
-  .pill.hot { border-color: var(--accent); color: var(--accent); }
   ul.reads { padding-left: 18px; margin: 0; }
-  ul.reads li { margin: 0 0 10px; }
-  footer {
-    margin-top: 48px;
-    padding-top: 14px;
-    border-top: 1px solid var(--soft);
-    color: var(--muted);
-    font-size: 11px;
-  }
+  ul.reads li { margin: 0 0 12px; }
+  ul.reads li:last-child { margin-bottom: 0; }
   @media (max-width: 720px) {
     h1 { font-size: 22px; }
     .stats { grid-template-columns: 1fr 1fr; }
@@ -129,18 +124,20 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">100 partners<span>.</span></div>
-      <div class="meta">// internal · partner program landscape · 1 sep 2026</div>
+      <div class="lockup">
+        <div class="word">100 partners<span>.</span></div>
+        <div class="marks">
+          <img src="assets/100p-logo.png" alt="100 Partners">
+          <img src="assets/hundred-logo.svg" alt="Hundred">
+        </div>
+      </div>
     </header>
 
-    <h1>Who pays for partners in Hundred’s category</h1>
+    <h1>Hundred's Competitive Partner Landscape</h1>
     <p class="lede">
-      Ranked by how directly they compete with <a href="https://www.hundred.com/">Hundred</a>:
-      annual blood-panel membership, then a plan. Superpower’s own site names
-      <strong>Function Health</strong>, <strong>Mito Health</strong>, and
-      <strong>InsideTracker</strong>. Those three sit right under Superpower.
-      Cash figures and software are from public program pages. Function’s creator
-      rate is not published.
+      Ranked by how directly they compete with <a href="https://www.hundred.com/">Hundred</a>.
+      Superpower’s site names Function, Mito, and InsideTracker — those three sit under them.
+      Cash and software from public program pages. Function’s creator rate is unpublished.
     </p>
 
     <div class="stats">
@@ -152,10 +149,9 @@
 
     <div class="note">
       <p>
-        Superpower and Hundred run on the same rails (Dub). Superpower pays double
-        and writes “gym owners” into the copy. Function is not the affiliate threat.
-        They win on Huberman, GNC, FabFitFun, and brokers. Mito sells the coach
-        the lab at cost. InsideTracker sells the coach a dashboard.
+        Superpower and Hundred share Dub. Superpower pays double and writes “gym owners” into the copy.
+        Function wins on Huberman, GNC, FabFitFun, and brokers — not affiliates.
+        Mito sells the coach the lab. InsideTracker sells the coach a dashboard.
       </p>
     </div>
 
@@ -173,27 +169,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="you">
-            <td class="rank">you</td>
-            <td>
-              <a class="name" href="https://www.hundred.com/">Hundred</a>
-              <span class="sub">$199 / year · 100-day protocol</span>
-              <span class="pill hot">client</span>
-            </td>
-            <td>The product Superpower wrote a vs page against. Records import + 100-day plan is the real gap.</td>
-            <td>$50 per member. Referred user gets 10% off for 6 months.</td>
-            <td>Dub</td>
-            <td><a href="https://partners.dub.co/hundred">partners.dub.co/hundred</a></td>
-          </tr>
           <tr>
             <td class="rank">1</td>
             <td>
               <a class="name" href="https://superpower.com/">Superpower</a>
               <span class="sub">$199–$349 · protocol + Rx</span>
-              <span class="pill hot">most direct</span>
+              <span class="pill">most direct</span>
             </td>
-            <td>Closest clone. Same buyer, same Quest story, same “plan after the draw.” They named Hundred on a comparison page.</td>
-            <td>$100 / sale. +$200 if a referred partner earns $400. +$750 at 25 sales, +$1,500 at 50. Ambassadors get 50% off year one.</td>
+            <td>Closest clone. Same buyer, same Quest story. They named Hundred on a vs page.</td>
+            <td>$100 / sale. +$200 if a referred partner earns $400. +$750 at 25 sales, +$1,500 at 50.</td>
             <td>Dub</td>
             <td><a href="https://partners.dub.co/superpower">partners.dub.co/superpower</a></td>
           </tr>
@@ -202,40 +186,36 @@
             <td>
               <a class="name" href="https://www.functionhealth.com/">Function Health</a>
               <span class="sub">$365 · 160+ tests, 2x / year</span>
-              <span class="pill">named by Superpower</span>
             </td>
-            <td>Category leader. First name in every review. Huberman / Hyman. Same job, bigger brand, no Rx store.</td>
-            <td>Practitioners: $0. Patient gets $25 off $365. Creators: paid on Impact, rate not public (custom order form, 2-year agreement).</td>
+            <td>Category leader. Huberman / Hyman. Same job, bigger brand.</td>
+            <td>Practitioners: $0. Patient gets $25 off $365. Creators on Impact, rate unpublished.</td>
             <td>Impact</td>
             <td>
               <a href="https://www.functionhealth.com/practitioners-referral-program">practitioner program</a><br>
               <a href="https://www.functionhealth.com/partners/gnc">GNC</a> ·
-              <a href="https://www.functionhealth.com/partners/fabfitfun">FabFitFun</a> ·
-              <a href="https://www.functionhealth.com/for-business">for business</a>
+              <a href="https://www.functionhealth.com/partners/fabfitfun">FabFitFun</a>
             </td>
           </tr>
           <tr>
             <td class="rank">3</td>
             <td>
               <a class="name" href="https://mitohealth.com/">Mito Health</a>
-              <span class="sub">pay-as-you-go + $9 / mo member</span>
-              <span class="pill">named by Superpower</span>
+              <span class="sub">pay-as-you-go + $9 / mo</span>
             </td>
-            <td>On Superpower’s compare menu. Same “labs + plan + clinician” job. Sells through practitioners, not consumer affiliates.</td>
-            <td>No public $ per sale. Practitioners buy labs at cost-plus and keep the markup. They claim ~$98 vs Function’s $365 list.</td>
-            <td>Direct apply</td>
+            <td>Same labs + plan + clinician job. Coach channel, not consumer affiliates.</td>
+            <td>No public CPA. Practitioners buy labs at cost-plus and keep the markup.</td>
+            <td>Direct</td>
             <td><a href="https://mitohealth.com/for/practitioners">mitohealth.com/for/practitioners</a></td>
           </tr>
           <tr>
             <td class="rank">4</td>
             <td>
               <a class="name" href="https://www.insidetracker.com/">InsideTracker</a>
-              <span class="sub">~$340–$829 per test · athlete brand</span>
-              <span class="pill">named by Superpower</span>
+              <span class="sub">~$340–$829 / test · athlete brand</span>
             </td>
-            <td>On Superpower’s compare menu. Oldest name (2009). Smaller panel, coach-first, not a $199 membership clone.</td>
-            <td>Pro: commission + 25% client discount + 50% off personal. 2021 press said 10% of order. Network scrapes also list 3–8%. Treat % as stale.</td>
-            <td>Pro portal + Impact</td>
+            <td>Oldest name (2009). Coach-first. Not a $199 membership clone.</td>
+            <td>Pro: commission + 25% client discount. 2021 press said 10%. Treat % as stale.</td>
+            <td>Pro + Impact</td>
             <td><a href="https://info.insidetracker.com/npti">InsideTracker Pro</a></td>
           </tr>
           <tr>
@@ -244,12 +224,12 @@
               <a class="name" href="https://siphoxhealth.com/">SiPhox Health</a>
               <span class="sub">at-home · ~60 markers</span>
             </td>
-            <td>Same “know your blood” job, different draw. No needle, frequent retest. Sits in the same creator inbox.</td>
-            <td>20% rev share, they claim avg $70, cap ~$100. 30-day cookie. White-label from 30 kits.</td>
+            <td>Same “know your blood” job, finger-prick. Sits in the same creator inbox.</td>
+            <td>20% rev share. They claim avg $70, cap ~$100. 30-day cookie.</td>
             <td>Own / UpPromote</td>
             <td>
-              <a href="https://siphoxhealth.com/affiliate-program">affiliate program</a><br>
-              <a href="https://siphoxhealth.com/partner">white-label / partner</a>
+              <a href="https://siphoxhealth.com/affiliate-program">affiliate</a> ·
+              <a href="https://siphoxhealth.com/partner">white-label</a>
             </td>
           </tr>
           <tr>
@@ -258,8 +238,8 @@
               <a class="name" href="https://www.empirical.health/">Empirical Health</a>
               <span class="sub">100 biomarkers · $190 · heart-first</span>
             </td>
-            <td>Same price band and panel size. Narrower story (don’t die of heart disease). Clinician network, not a public CPA.</td>
-            <td>No public affiliate rate. Clinicians can buy memberships for patients.</td>
+            <td>Same price band. Narrower story. Clinician network, not a public CPA.</td>
+            <td>No public rate. Clinicians buy memberships for patients.</td>
             <td>Direct</td>
             <td><a href="https://www.empirical.health/clinicians/">empirical.health/clinicians</a></td>
           </tr>
@@ -269,8 +249,8 @@
               <a class="name" href="https://www.marekhealth.com/">Marek Health</a>
               <span class="sub">labs + coaching + Rx</span>
             </td>
-            <td>Adjacent. Starts with labs, then hormones and meds. Competes for the same biohacker, not the same membership.</td>
-            <td>Network listings: ~$20 CPA on FlexOffers. Also on Impact. Official rate not on their site.</td>
+            <td>Adjacent. Labs, then hormones and meds. Same biohacker, different product.</td>
+            <td>Network listings: ~$20 CPA on FlexOffers. Official rate not on their site.</td>
             <td>Impact + FlexOffers</td>
             <td><a href="https://www.flexoffers.com/affiliate-programs/marek-health-affiliate-program/">FlexOffers listing</a></td>
           </tr>
@@ -280,8 +260,8 @@
               <a class="name" href="https://www.honehealth.com/">Hone Health</a>
               <span class="sub">telehealth · TRT / HRT / GLP-1</span>
             </td>
-            <td>Labs as the door to prescriptions. Superpower also sells Rx. Hone is the clinic, not the $199 protocol brand.</td>
-            <td>Network listings: ~$30 CPA (Katalys / Impact). Official rate not on their site.</td>
+            <td>Labs as the door to prescriptions. The clinic, not the $199 protocol brand.</td>
+            <td>Network listings: ~$30 CPA. Official rate not on their site.</td>
             <td>Impact / Katalys</td>
             <td><a href="https://www.affilitizer.com/programs/honehealth.com">Impact listing</a></td>
           </tr>
@@ -291,27 +271,41 @@
 
     <h2>what the live brand deals look like</h2>
     <ul class="reads">
-      <li><strong>Superpower</strong> already ran SoulCycle (their first brand deal, Fall 2025), a Yes Theory 20/20 challenge with a $10k prize, Thatch at $179, and employee pages for Workday, Intuit, LinkedIn, Stripe. <a href="https://superpower.com/creators/yes-theory">Yes Theory page</a>.</li>
-      <li><strong>Function</strong> does retail and boxes, not gyms: <a href="https://www.functionhealth.com/partners/gnc">GNC</a>, <a href="https://www.functionhealth.com/partners/fabfitfun">FabFitFun</a>, <a href="https://www.functionhealth.com/for-business">Function for Business</a> (500+). Hiring against Aon / Mercer / WTW.</li>
-      <li><strong>Hundred</strong> has Cymbiotika ($49 intro) and CAL FIRE Local 2881. Those two motions Superpower has not copied.</li>
-      <li><strong>Mito</strong> is practitioner-only on the public site. The partner is the coach, who owns billing.</li>
-      <li><strong>InsideTracker</strong> is coach-dashboard. Client results flow to the trainer. Oldest play in the category.</li>
-      <li><strong>SiPhox</strong> already built creator landing pages (Ben Greenfield, Nick Norwitz, Cristy Nickels).</li>
+      <li>
+        <strong>Superpower · studios.</strong>
+        SoulCycle was the first brand deal (Fall 2025 challenge, 15 rides, instructors as ambassadors, memberships as prizes).
+        That’s the studio play: challenge + talent + prize, not a static affiliate link.
+      </li>
+      <li>
+        <strong>Superpower · creators.</strong>
+        <a href="https://superpower.com/creators/yes-theory">Yes Theory 20/20</a>:
+        test → 90-day plan → retest. $10k prize (Galleri, Oura, Eight Sleep, coaching). Deadline was 1 Jan 2026.
+        Custom landing page, not a Dub link in bio.
+      </li>
+      <li>
+        <strong>Superpower · employers.</strong>
+        <a href="https://insider.fitt.co/press-release/beyond-insurance-superpower-joins-the-thatch-marketplace-to-reimagine-employee-health-benefits/">Thatch</a> at $179.
+        Stratos Health wraps the $199 membership as a $0 employee benefit.
+        Live employee pages for Workday, Intuit, LinkedIn, Stripe.
+        <a href="https://www.prnewswire.com/news-releases/cancer-is-striking-earlier--superpower-and-grail-are-partnering-to-expand-early-detection-302731675.html">GRAIL Galleri</a> is the 2026 add-on they sell into those same companies.
+      </li>
+      <li>
+        <strong>Function · retail and boxes.</strong>
+        <a href="https://www.functionhealth.com/partners/gnc">GNC</a> (myGNC Rewards),
+        <a href="https://www.functionhealth.com/partners/fabfitfun">FabFitFun</a>,
+        <a href="https://www.functionhealth.com/for-business">Function for Business</a> (500+ employers, plus brokers and &lt;500 group buys).
+        Huberman sits on the medical board. Distribution fight, not a $100 bounty fight.
+      </li>
+      <li>
+        <strong>Hundred.</strong>
+        Cymbiotika ($49 intro) and CAL FIRE Local 2881. Brand-intro and union — two motions Superpower has not copied.
+      </li>
+      <li>
+        <strong>Mito</strong> is practitioner-only. The coach owns billing.
+        <strong>InsideTracker</strong> is the coach dashboard — oldest play in the category.
+        <strong>SiPhox</strong> already ships creator landing pages (Ben Greenfield, Nick Norwitz, Cristy Nickels).
+      </li>
     </ul>
-
-    <h2>how to use this</h2>
-    <ul class="reads">
-      <li>The $50 vs $100 gap is the first thing a mid-tier creator sees. Same software, half the bounty.</li>
-      <li>Do not treat Function as the affiliate fight. Treat them as the distribution fight (retail, box, brokers, Huberman).</li>
-      <li>Mito and InsideTracker are the coach channel. Different offer: cost-plus labs, or a dashboard, not a $50 link.</li>
-      <li>SoulCycle is taken. Barry’s, padel, Othership are the open version of Superpower’s studio play.</li>
-      <li>Keep the two proofs Superpower still does not have: unions, and Cymbiotika-class brand intros.</li>
-    </ul>
-
-    <footer>
-      snapshot 1 sep 2026 · public program pages and press · Function creator payout and InsideTracker current % are not on a public rate card ·
-      blocked from search (robots + noindex) · docs.100.partners/hundred
-    </footer>
   </div>
 </body>
 </html>
